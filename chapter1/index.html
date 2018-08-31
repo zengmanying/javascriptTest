@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>控制div属性</title>
+</head>
+<style>
+  .operate {
+    width: 300px;
+    margin: 10px auto;
+    text-align: center;
+  }
+  .box {
+    width: 200px;
+    height: 200px;
+    background: #000;
+    margin: 10px auto;
+  }
+</style>
+<body>
+  <div class="operate">
+    <input type="button" value="变宽" id="control-width-btn">
+    <input type="button" value="变高" id="control-height-btn">
+    <input type="button" value="变色" id="control-color-btn">
+    <input type="button" value="隐藏" id="control-visible-btn">
+    <input type="button" value="重置" id="reset-btn">
+  </div>
+  <div class="box"></div>
+</body>
+<script>
+  var boxObj = document.getElementsByClassName('box')[0];
+  var controlWidthBtn = document.getElementById('control-width-btn');
+  var controlHeightBtn = document.getElementById('control-height-btn');
+  var controlColorBtn = document.getElementById('control-color-btn');
+  var controlVisibleBtn = document.getElementById('control-visible-btn');
+  var controlResetBtn = document.getElementById('reset-btn');
+  // 变形
+  function changes(obj, type) {
+    switch (type) {
+      case 'width':
+        obj.style.width = parseInt(getComputedStyle(obj,false).width) + 20 + 'px';
+        break;
+      case 'height':
+        obj.style.height = parseInt(getComputedStyle(obj,false).height) + 20 + 'px';
+        break;
+      case 'background':
+        obj.style.background = 'red';
+        break;
+      case 'visibility':
+        obj.style.visibility = 'hidden';
+        break;
+      default:
+        obj.style = {
+          width: 200,
+          height: 200,
+          background: 'black',
+          visibility: 'visible'
+        }
+    }
+  }
+
+  controlWidthBtn.onclick = function () {
+    changes(boxObj,'width')
+  };
+  controlHeightBtn.onclick = function () {
+    changes(boxObj,'height')
+  };
+  controlColorBtn.onclick = function () {
+    changes(boxObj,'background')
+  };
+  controlVisibleBtn.onclick = function () {
+    changes(boxObj,'visibility')
+  };
+  controlResetBtn.onclick = function () {
+    changes(boxObj,'reset')
+  }
+</script>
+</html>
