@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>函数传参</title>
+</head>
+<style>
+  form{
+    text-align: center;
+  }
+</style>
+<body>
+  <form action="">
+    <input type="text">
+    <input type="text">
+    <button id="form-btn">传参</button>
+  </form>
+</body>
+<script>
+  window.onload = function () {
+    var obtn = document.getElementById('form-btn');
+    var oinput = document.getElementsByTagName('input')
+    obtn.onclick = function () {
+      for(var i = 0; i < oinput.length; i++) {
+        alert(oinput[i].value)
+      }
+
+    }
+  }
+
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>网页换肤</title>
+</head>
+<style>
+  .opreate li {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+  }
+  .opreate li.current {
+    border-color: white;
+  }
+  .opreate li:nth-child(1) {
+    background: red;
+  }
+  .opreate li:nth-child(2) {
+    background: green;
+  }
+  .opreate li:nth-child(3) {
+    background: black;
+  }
+</style>
+<body id="body">
+  <ul class="opreate">
+    <li id="red"></li>
+    <li id="green"></li>
+    <li id="black"></li>
+  </ul>
+</body>
+<script>
+  var obody = document.getElementById('body');
+  var oli = document.getElementsByTagName('li');
+  var colorlist = ['red','green','black'];
+  window.onload = function () {
+    for (var i = 0; i<oli.length; i++) {
+      oli[i].index = i;
+      oli[i].onclick = function () {
+        for(var p in oli) oli[p].className = "";
+        this.className = 'current';
+        obody.style.background = colorlist[this.index];
+      }
+    }
+  }
+</script>
+</html>
